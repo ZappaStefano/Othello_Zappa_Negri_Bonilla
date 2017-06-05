@@ -137,15 +137,37 @@ public class ControllerClass {
                                     gameStatus = false;
                                     endGame = 0; 
                                 }else{
-                                    System.out.println("CONTROLLERCLASS: mossaa accettata " + replay);
-                                    String x1 = replay.substring(18,19);
-                                    String x2 = replay.substring(23,24);
-                                    int x = Integer.parseInt(x1);
-                                    int y = Integer.parseInt(x2);
-                                    System.out.println("CONTROLLERCLASS: MOSSE TURNO CORRENTE--> x " + x + " y " + y);
-                                    Memory.changeColor(x, y);
-                                    Memory.printMap();
-                                    new Memory().upgradeView();
+                                    if(replay.substring(0,5).equals("round")){
+                                        System.out.println("CONTROLLERCLASS: testo ricevuto : " + enemyMove);
+                                        if(enemyMove.substring(0,3).equals("end")){ //end game
+                                            MainWindows.writeChronologyArea(enemyMove);
+                                            socket.close();
+                                            MainWindows.writeChronologyArea(Memory.winnerGame());
+                                            MainWindows.jMenu2.enable(true);
+                                            gameStatus = false;
+                                            endGame = 0; 
+                                        }
+                                        else{
+                                            String x1 = enemyMove.substring(18,19);
+                                            String x2 = enemyMove.substring(23,24);
+                                            int x = Integer.parseInt(x1);
+                                            int y = Integer.parseInt(x2);
+                                            System.out.println("CONTROLLERCLASS: mosse turno avversario: x " + x + " y " + y);
+                                            Memory.changeColorEnemyTurn(x, y);
+                                            Memory.printMap();
+                                            new Memory().upgradeView();
+                                        }
+                                    }else{
+                                        System.out.println("CONTROLLERCLASS: mossaa accettata " + replay);
+                                        String x1 = replay.substring(18,19);
+                                        String x2 = replay.substring(23,24);
+                                        int x = Integer.parseInt(x1);
+                                        int y = Integer.parseInt(x2);
+                                        System.out.println("CONTROLLERCLASS: MOSSE TURNO CORRENTE--> x " + x + " y " + y);
+                                        Memory.changeColor(x, y);
+                                        Memory.printMap();
+                                        new Memory().upgradeView();
+                                    }
                                 }
                             }
                         }
