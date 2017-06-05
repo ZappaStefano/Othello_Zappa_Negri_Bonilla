@@ -84,12 +84,15 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="327" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="381" max="-2" attributes="0"/>
+                      <Component id="jLabel1" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="355" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="sfondo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="sfondo" min="-2" pref="830" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
               <Component id="Info" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -102,8 +105,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="sfondo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                      <Component id="sfondo" min="-2" pref="907" max="-2" attributes="0"/>
                   </Group>
                   <Component id="Info" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -325,19 +327,19 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="643" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="Chessboard11" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Chessboard14" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Chessboard8" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Chessboard9" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Chessboard10" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="Chessboard15" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Chessboard13" max="32767" attributes="0"/>
-                          <Component id="Chessboard12" alignment="0" min="-2" pref="619" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="Chessboard11" alignment="1" min="-2" pref="813" max="-2" attributes="0"/>
+                          <Component id="Chessboard13" alignment="1" min="-2" pref="813" max="-2" attributes="0"/>
+                          <Component id="Chessboard15" alignment="1" min="-2" pref="813" max="-2" attributes="0"/>
+                          <Component id="Chessboard10" alignment="1" min="-2" pref="813" max="-2" attributes="0"/>
+                          <Component id="Chessboard12" alignment="1" min="-2" pref="813" max="-2" attributes="0"/>
+                          <Component id="Chessboard9" alignment="1" min="-2" pref="813" max="-2" attributes="0"/>
+                          <Component id="Chessboard8" alignment="1" min="-2" pref="813" max="-2" attributes="0"/>
+                          <Component id="Chessboard14" alignment="1" min="-2" pref="813" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -346,25 +348,25 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="765" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Chessboard13" min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="Chessboard13" min="-2" pref="106" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Chessboard11" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="Chessboard11" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Chessboard15" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="Chessboard15" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Chessboard10" min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="Chessboard10" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Chessboard12" min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="Chessboard12" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Chessboard9" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="Chessboard9" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Chessboard8" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="Chessboard8" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Chessboard14" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="Chessboard14" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
