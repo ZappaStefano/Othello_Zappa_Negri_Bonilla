@@ -1871,10 +1871,6 @@ public class MainWindows extends javax.swing.JFrame {
 
     /*MAIN*/
     public static void main(String args[]) {
-        System.out.println("version 1.7.2.3");
-        System.out.println("Migliorie grafiche");
-        System.out.println("Migliorie nel fine partita del server");
-        System.out.println("--------------------------------------------------\n");
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
