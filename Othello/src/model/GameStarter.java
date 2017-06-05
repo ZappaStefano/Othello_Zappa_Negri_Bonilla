@@ -99,6 +99,7 @@ public class GameStarter extends Thread {
                         BL = false;
                     boolean j = false;
                     boolean h = false;
+                    
                     while (h == false){
                         String g = FC.EndGameChecker();
                             if (g.equals("round: <black>;")){
@@ -120,7 +121,7 @@ public class GameStarter extends Thread {
                                 h = true;
                                 b = true;
                             }
-                            else{
+                            if (h == false || BL == true){
                                 String B = in_IP1.readLine();
                                 System.out.println(B);
                                     if (B.contains("place: <")){
@@ -182,7 +183,7 @@ public class GameStarter extends Thread {
                                 h = true;
                                 b = true;
                             }
-                            else {
+                            if (h == false || WH == true){
                                 String W = in_IP2.readLine();
                                 System.out.println(W);
                                     if (W.contains("place: <")){
