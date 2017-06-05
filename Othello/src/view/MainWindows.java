@@ -1871,7 +1871,6 @@ public class MainWindows extends javax.swing.JFrame {
 
     /*MAIN*/
     public static void main(String args[]) {
-        System.out.println("Hello!");
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
