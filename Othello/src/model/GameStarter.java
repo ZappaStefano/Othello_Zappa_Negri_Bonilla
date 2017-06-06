@@ -76,6 +76,7 @@ public class GameStarter extends Thread {
         FC = new FieldController();
         Num = 4;
         b = false;
+        String round = "black";
         try {
             while (b == false){
             in_IP1 = new BufferedReader(new InputStreamReader(S1.getInputStream()));
@@ -93,128 +94,115 @@ public class GameStarter extends Thread {
                     FirstRound = false;
                 }
                 
-                if ((Num % 2 == 0) || BL == true){
+                if (round.equals("black")){
                     System.out.println("Tocca al nero");
-                    if (BL == true)
-                        BL = false;
-                    boolean j = false;
                     boolean h = false;
                     
+                    String g = FC.EndGameChecker();
+                        if (g.equals("round: <black>;")){
+                            round = "black";
+                            h = false;
+                        }
+                        if (g.equals("round: <white>;")){
+                            round = "white";
+                            out_IP1.println(g);
+                            out_IP2.println(g);
+                            h = true;
+                        }
+                        if (g.contains("end")){
+                            out_IP1.println(g);
+                            out_IP2.println(g);
+                            h = true;
+                            b = true;
+                        }
                     while (h == false){
-                        String g = FC.EndGameChecker();
-                            if (g.equals("round: <black>;")){
-                                BL = true;
-                                out_IP1.println(g);
-                                out_IP2.println(g);
-                                j = true;
-                                h = true;
-                            }
-                            if (g.equals("round: <white>;")){
-                                WH = true;
-                                out_IP1.println(g);
-                                out_IP2.println(g);
-                                h = true;
-                            }
-                            if (g.contains("end")){
-                                out_IP1.println(g);
-                                out_IP2.println(g);
-                                h = true;
-                                b = true;
-                            }
-                            if (h == false || BL == true){
-                                String B = in_IP1.readLine();
-                                System.out.println(B);
-                                    if (B.contains("place: <")){
-                                        int x = Character.getNumericValue(B.charAt(8));
-                                        int y = Character.getNumericValue(B.charAt(13));
-                                        System.out.println(x + "  "+ y);
-                                        String s = FC.Place (x,y, true);
-                                            if (s.equals("move not valid;")){
-                                                out_IP1.println(s);
-                                            }
-                                        else {
-                                            out_IP1.println(s);
-                                            out_IP2.println(s);
-                                            System.out.println("\n"+s);
-                                            if (s.contains("update:")){
-                                                if (Num == 63){
-                                                    out_IP1.println(FC.cont());
-                                                    out_IP2.println(FC.cont());
-                                                }
-                                                else{
-                                                    out_IP1.println("round: <white>;");
-                                                    out_IP2.println("round: <white>;");
-                                                }
-                                            }
-                                            h = true;
-                                        }
+                        String B = in_IP1.readLine();
+                        System.out.println(B);
+                        if (B.contains("place: <")){
+                            int x = Character.getNumericValue(B.charAt(8));
+                            int y = Character.getNumericValue(B.charAt(13));
+                            System.out.println(x + "  "+ y);
+                            String s = FC.Place (x,y, true);
+                            
+                            if (s.equals("move not valid;")){
+                                out_IP1.println(s);
+                            }   
+                            else {
+                                out_IP1.println(s);
+                                out_IP2.println(s);
+                                System.out.println("\n"+s);
+                                
+                                if (s.contains("update:")){
+                                    if (Num == 63){
+                                        out_IP1.println(FC.cont());
+                                        out_IP2.println(FC.cont());
                                     }
+                                    else{
+                                        Num = Num +1;
+                                        out_IP1.println("round: <white>;");
+                                        out_IP2.println("round: <white>;");
+                                        round = "white";
+                                    }
+                                }
+                                h = true;
                             }
+                        }
                     }
-                    if (j != true)
-                        Num = Num +1;
-                    
                 }
                 
-                if ((Num % 2 != 0 && b == false) || (WH == true && b == false)){
+                else if (round.equals("white")){
                     System.out.println("Tocca al bianco");
-                    if (WH == true)
-                        WH =false;
-                    boolean j = false;
                     boolean h = false;
+                    String g = FC.EndGameChecker();
+                        if (g.equals("round: <black>;")){
+                            round = "black";
+                            out_IP1.println(g);
+                            out_IP2.println(g);
+                            h = true;
+                        }
+                        if (g.equals("round: <white>;")){
+                            round = "white";
+                            h = false;
+                        }
+                        if (g.contains("end")){
+                            out_IP1.println(g);
+                            out_IP2.println(g);
+                            h = true;
+                            b = true;
+                        }
                     while (h == false){
-                        String g = FC.EndGameChecker();
-                            if (g.equals("round: <black>;")){
-                                BL = true;
-                                out_IP1.println(g);
-                                out_IP2.println(g);
-                                h = true;
-                            }
-                            if (g.equals("round: <white>;")){
-                                WH = true;
-                                out_IP1.println(g);
-                                out_IP2.println(g);
-                                h = true;
-                                j = true;
-                            }
-                            if (g.contains("end")){
-                                out_IP1.println(g);
-                                out_IP2.println(g);
-                                h = true;
-                                b = true;
-                            }
-                            if (h == false || WH == true){
-                                String W = in_IP2.readLine();
-                                System.out.println(W);
-                                    if (W.contains("place: <")){
-                                        int x = Character.getNumericValue(W.charAt(8));
-                                        int y = Character.getNumericValue(W.charAt(13));
-                                        System.out.println(x + "  "+ y);
-                                        String s = FC.Place (x,y, false);
-                                        if (s.equals("move not valid;")){ 
-                                            out_IP2.println(s);
-                                        }
-                                        else {
-                                            out_IP1.println(s);
-                                            out_IP2.println(s);
-                                            System.out.println("\n"+s);
-                                            if (s.contains("update:")){
-                                                if (Num == 63){
-                                                    out_IP1.println(FC.cont());
-                                                    out_IP2.println(FC.cont());
-                                                }
-                                                else{
-                                                    out_IP1.println("round: <black>;");
-                                                    out_IP2.println("round: <black>;");
-                                                }
-                                            }
-                                            h = true;
-                                        }
+                        String B = in_IP2.readLine();
+                        System.out.println(B);
+                        if (B.contains("place: <")){
+                            int x = Character.getNumericValue(B.charAt(8));
+                            int y = Character.getNumericValue(B.charAt(13));
+                            System.out.println(x + "  "+ y);
+                            String s = FC.Place (x,y, false);
+                            
+                            if (s.equals("move not valid;")){
+                                out_IP2.println(s);
+                            }   
+                            else {
+                                out_IP1.println(s);
+                                out_IP2.println(s);
+                                System.out.println("\n"+s);
+                                
+                                if (s.contains("update:")){
+                                    if (Num == 63){
+                                        out_IP1.println(FC.cont());
+                                        out_IP2.println(FC.cont());
                                     }
+                                    else{
+                                        Num = Num +1;
+                                        out_IP1.println("round: <black>;");
+                                        out_IP2.println("round: <black>;");
+                                        round = "black";
+                                    }
+                                }
+                                h = true;
                             }
+                        }
                     }
-                    if (j != true)
-                        Num = Num +1;
                 }
                 FC.printGrid();
             }
