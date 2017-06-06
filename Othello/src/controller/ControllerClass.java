@@ -91,6 +91,7 @@ public class ControllerClass {
         Memory.setMyColor(textOfFirstMessage(firstMessage));
         while(endGame != 0 ){
             if(moveValid == true){
+                    Memory.removeHint();
                     text = read.readLine();
                     System.out.println("CONTROLLERCLASS: testo letto: " + text);
                     System.out.println("CONTROLLERCLASS: attendo 200 ms");
