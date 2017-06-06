@@ -84,7 +84,7 @@ public class Memory {
      * 1 --> cella nera
      * 2 --> cella bianca
      */
-    private static int map[][] = new int[8][8];
+    private static  int map[][] = new int[8][8];
     /**
      * aray della scacchiera per aiuti
      * 3 -> cella suggerimento
@@ -96,28 +96,28 @@ public class Memory {
      * metodo per aggiungere l'ip alla memoria.
      * @param ip String contenente l'ip.
      */
-    public static void setIpAddress(String ip){
+    public static synchronized void setIpAddress(String ip){
         ipAddress = ip;
     }
     /**
      * metodo per ottenere l'ip dalla memoria.
      * @return String contenente l'ip
      */
-    public static String getIpAddress(){
+    public static synchronized String getIpAddress(){
         return ipAddress;
     }
     /**
      * metodo per aggiungere la porta alla memoria.
      * @param port intero contenente la porta.
      */
-    public static void setPort(int port){
+    public static synchronized void setPort(int port){
         numberPort = port;
     }
     /**
      * metodo per restituire la porta dalla memoria.
      * @return intero contenente la porta
      */
-    public static int getPort(){
+    public static synchronized int getPort(){
         return numberPort;
     }
     /**
@@ -125,7 +125,7 @@ public class Memory {
      * inizializza i colori di inizio sulla scacchiera.
      * inizializza le posizioni dei colori sulla mappa testuale.
      */
-    public void newGame(){
+    public synchronized void newGame(){
         try{
             map[3][3] = 2;
             map[3][4] = 1;
@@ -140,7 +140,7 @@ public class Memory {
     /**
      * metodo per rinizializzare le variabili boolean per il cambio delle pedine durante i turni.
      */
-    private void resetVariables () {
+    private synchronized void resetVariables () {
         N = false;
         S = false;
         E = false;
@@ -155,7 +155,7 @@ public class Memory {
      * @param x
      * @param y 
      */
-    private void Controller (int x, int y) {
+    private synchronized void Controller (int x, int y) {
         if (x == 0){
             if (y == 0){
                 NW = true;
@@ -187,7 +187,7 @@ public class Memory {
      * @param x intero coordinata x.
      * @param y intero coordinata y.
      */
-    public static void changeColorEnemyTurn(int x,int y){
+    public static synchronized void changeColorEnemyTurn(int x,int y){
         try{
         new Memory().resetVariables();
         new Memory().Controller(x, y);
@@ -676,7 +676,7 @@ public class Memory {
      * @param x intero coordinata x.
      * @param y intero coordinata y.
      */
-    public static void changeColor(int x,int y){
+    public static synchronized void changeColor(int x,int y){
         try{
         new Memory().resetVariables();
         new Memory().Controller(x, y);
@@ -1163,7 +1163,7 @@ public class Memory {
     /**
      * metodo per aggiornare la view grafica
      */
-    public  void upgradeView(){
+    public synchronized void upgradeView(){
         int cont = 0;
         for(int x = 0; x < 8; x = x + 1){
             for(int y = 0; y < 8; y = y + 1){     
@@ -1179,7 +1179,7 @@ public class Memory {
      * @param position posizione da 0 a 63. lo 0 corrisponde al bottone 0 - 0.
      * @param color intero corrispondente al colore ( 1 = nero; 2 = bianco ).
      */
-    public  void changeColorButton(int position, int color){
+    public synchronized void changeColorButton(int position, int color){
         switch(position){
             case 0:
                 if(color == 1){ 
@@ -1641,7 +1641,7 @@ public class Memory {
     /**.
      * metodo per resettare la partita e la grafica
      */
-    public static void resetView(){
+    public static synchronized void resetView(){
         int cont = 0;
         for(int x = 0; x < 8; x = x + 1){
             for(int y = 0; y < 8; y = y + 1){
@@ -1658,7 +1658,7 @@ public class Memory {
      * metodo per reimpostare l'immagini allo stato iniziale
      * @param position posizione da 0 a 63. lo 0 corrisponde al bottone 0 - 0.
      */
-    public  void resetColorView(int position){
+    public synchronized void resetColorView(int position){
         switch(position){
             case 0:
                     b00.setIcon(null);
@@ -1857,7 +1857,7 @@ public class Memory {
     /**
      * metodo per disabilitare i bottoni
      */
-    public  void disableButton(){
+    public synchronized void disableButton(){
         System.out.println("MEMORY: disabilito i bottoni");
         for(int i = 0; i < 64; i = i + 1){
             switch(i){
@@ -2122,7 +2122,7 @@ public class Memory {
     /**
      * metodo per stampare la mappa in testuale
      */
-    public static void printMap(){
+    public static synchronized void printMap(){
         for(int x = 0;x < 8; x = x + 1){
             for(int y = 0; y < 8; y = y + 1){
                 System.out.print(map[x][y] + " ");
@@ -2135,7 +2135,7 @@ public class Memory {
      * scrive in automatico il colore nella jtextfield corrispondente.
      * @param color Stringa contenente il colore del giocatore
      */
-    public static void setMyColor(String color){
+    public static synchronized void setMyColor(String color){
         myColor = color;
         MainWindows.writeYourColorArea(color);
     }
@@ -2143,14 +2143,14 @@ public class Memory {
      * metodo per restituire il colore del giocatore corrente dalla memoria
      * @return stringa contenente il colore del giocatore.
      */
-    public static String getMyColor(){
+    public static synchronized String getMyColor(){
         return myColor;
     }
     /**
      * metodo per aggiungere il colore del turno corrente alla memoria
      * @param color Stringa contenente il turno corrente
      */
-    public static void setTurnColor(String color){
+    public static synchronized void setTurnColor(String color){
         turnColor = color;
         MainWindows.writeTurnOfColor(color);
     }
@@ -2158,14 +2158,14 @@ public class Memory {
      * metodo per restituire il colore del turno corrente dalla memoria
      * @return Stringa contenente il turno corrente
      */
-    public static String getTurnColor(){
+    public static synchronized String getTurnColor(){
         return turnColor;
     }
     /**
      * +1 ai turni giocati.
      * aggiorna automaticamente la jtextfield corrispondente.
      */
-    public static void upTurn(){
+    public static synchronized void upTurn(){
         numberTurn = numberTurn + 1;
         MainWindows.writeNumberTurn("" + numberTurn);
     }
@@ -2173,21 +2173,21 @@ public class Memory {
      * -1 ai turni gioacati.
      * aggiorna automaticamente la jtextfield corrispondente.
      */
-    public static void downTurn(){
+    public static synchronized void downTurn(){
         numberTurn = numberTurn - 1;
         MainWindows.writeNumberTurn("" + numberTurn);
     }
     /**
      * resetta i  turni giocati
      */
-    public static void resetNumberTurn( ){
+    public static synchronized void resetNumberTurn( ){
         numberTurn = 0;
         MainWindows.writeNumberTurn("" + 0);
     }
     /**
      * resetta la mappa testuale
      */
-    public static void resetMap(){
+    public static synchronized void resetMap(){
         for(int x = 0; x < 8; x = x + 1){
             for(int y = 0; y < 8; y = y + 1){
                 map[x][y] = 0;
@@ -2198,7 +2198,7 @@ public class Memory {
      * metodo per contare le pedine nere, bianche e vuote.
      * scrive in automatico sulla textfield corrispondente.
      */
-    public static void cunterDiscs(){
+    public static synchronized void cunterDiscs(){
         int countWhite = 0;
         int countBlack = 0;
         int countNull = 0;
@@ -2215,7 +2215,7 @@ public class Memory {
      * metodo per stabilire chi ha vinto la partita
      * @return striga contenente il vincitore
      */
-    public static String winnerGame(){
+    public static synchronized String winnerGame(){
        int countWhite = 0;
         int countBlack = 0;
         int countNull = 0;
@@ -2235,7 +2235,7 @@ public class Memory {
      * metodo per aggiugnere l'immagine di aiuto
      * @param position della pedina
      */
-    public void positionHIntDiscs(int position){
+    public synchronized void positionHIntDiscs(int position){
         switch(position){
             case 0:
                     b00.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/image/legalSlot.png")));
@@ -2434,7 +2434,7 @@ public class Memory {
     /**
      * metodo per rimuovere tutti gli aiuti
      */
-    public static void removeHint(){
+    public static synchronized void removeHint(){
         int cont = 0;
         for(int x = 0; x < 8; x = x + 1){
             for(int y = 0; y < 8; y = y + 1){
@@ -2453,7 +2453,7 @@ public class Memory {
      * metodo per rimuovere le immagoini di aiuto
      * @param position posizione bottone
      */
-    public  static void resetHint(int position){
+    public static synchronized void resetHint(int position){
         switch(position){
             case 0:
                     b00.setIcon(null);
@@ -2652,7 +2652,7 @@ public class Memory {
     /**
      * metodo per settare gli aiuti 
      */
-    public void printMapHelp(){
+    public synchronized void printMapHelp(){
         System.out.println("MAP HELP");
         for(int x = 0; x < 8; x = x + 1){
             for(int y = 0; y < 8; y = y + 1){
@@ -2661,7 +2661,7 @@ public class Memory {
             System.out.println("");
         }
     }
-    public void Checker (){
+    public synchronized void Checker (){
         System.out.println("MEMORY: controllo gli aiuti");
         int cont = 0;
         for (int i = 0; i < 8; i++) {
@@ -2689,7 +2689,7 @@ public class Memory {
      * @param b colore
      * @return boolean true se la posizione è valida
      */
-    private boolean checker (int x, int y, boolean b){
+    private synchronized boolean checker (int x, int y, boolean b){
         resetVariables();
         Controller(x, y);
         boolean valid = false;
