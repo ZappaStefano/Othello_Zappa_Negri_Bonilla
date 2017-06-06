@@ -88,13 +88,14 @@ public class ControllerClass {
     private void startGame() throws IOException{
         String text;
         String firstMessage = read.readLine();
-        
         Memory.setMyColor(textOfFirstMessage(firstMessage));
         while(endGame != 0 ){
             if(moveValid == true){
-                    Memory.removeHint();
+                    //Memory.removeHint();
                     text = read.readLine();
                     System.out.println("CONTROLLERCLASS: testo letto: " + text);
+                    System.out.println("CONTROLLERCLASS: attendo 200 ms");
+                    try{ Thread.sleep(200); }catch(Exception ex){ System.out.println("CONTROLLERCLASS, eccezione nell'attesa: "+ ex); }
                 if(controllEndGame(text).equals("end")){
                     System.out.println("gioco finito");MainWindows.writeChronologyArea("end game." );
                     String winner = "Discs: " + text;
@@ -121,7 +122,7 @@ public class ControllerClass {
                     if(TurnOf(text).equals(Memory.getMyColor())){
                         try{
                             System.out.println("CONTROLLERCLASS: controllo le mosse possibili");
-                            new Memory().Checker();
+                            //new Memory().Checker();
                             System.out.println("CONTROLLERCLASS: my turn");System.out.println("CONTROLLERCLASS: colore turno : " + Memory.getTurnColor());MainWindows.writeChronologyArea("turn of : " + Memory.getTurnColor());
                             Memory.setTurnColor(TurnOf(text));
                             String replay = read.readLine();
