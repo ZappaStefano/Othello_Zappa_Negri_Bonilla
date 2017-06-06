@@ -663,13 +663,13 @@ public class FieldController {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (field[i][j].equals(Pawn.None)){
-                        System.out.print("| .");
+                        System.out.print(" 0");
                 }
                 if (field[i][j].equals(Pawn.Black)){
-                    System.out.print(" ▀ |");
+                    System.out.print(" B");
                 }
                 if (field[i][j].equals(Pawn.White)){
-                    System.out.print(" O |");
+                    System.out.print(" W");
                 }
             }
             System.out.println("");
