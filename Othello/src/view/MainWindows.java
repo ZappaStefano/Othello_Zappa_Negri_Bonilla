@@ -32,6 +32,8 @@ public class MainWindows extends javax.swing.JFrame {
         NumberTextField = new javax.swing.JTextField();
         labelNumberDiscs = new javax.swing.JLabel();
         numberDiscsTextField = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        infoBoxLabel1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         sfondo = new javax.swing.JPanel();
         Chessboard8 = new javax.swing.JPanel();
@@ -148,6 +150,16 @@ public class MainWindows extends javax.swing.JFrame {
 
         numberDiscsTextField.setEditable(false);
 
+        jButton1.setText("HINT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        infoBoxLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        infoBoxLabel1.setText("Another control");
+
         javax.swing.GroupLayout InfoLayout = new javax.swing.GroupLayout(Info);
         Info.setLayout(InfoLayout);
         InfoLayout.setHorizontalGroup(
@@ -161,9 +173,6 @@ public class MainWindows extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InfoLayout.createSequentialGroup()
-                        .addComponent(chronologyLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(InfoLayout.createSequentialGroup()
                         .addGroup(InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(InfoLayout.createSequentialGroup()
                                 .addGroup(InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,14 +185,23 @@ public class MainWindows extends javax.swing.JFrame {
                                 .addGap(1, 1, 1)))
                         .addGroup(InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(numberDiscsTextField)
-                            .addComponent(yourColorArea, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                            .addComponent(yourColorArea, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                             .addComponent(IpServerArea)
                             .addGroup(InfoLayout.createSequentialGroup()
                                 .addComponent(TurnColorArea)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(NumberTurnLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(NumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(NumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(InfoLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(infoBoxLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(InfoLayout.createSequentialGroup()
+                        .addGroup(InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chronologyLabel)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         InfoLayout.setVerticalGroup(
@@ -214,7 +232,11 @@ public class MainWindows extends javax.swing.JFrame {
                 .addGroup(InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNumberDiscs)
                     .addComponent(numberDiscsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(infoBoxLabel1)
+                .addGap(15, 15, 15)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -868,7 +890,7 @@ public class MainWindows extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(29, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(sfondo, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1823,6 +1845,15 @@ public class MainWindows extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(Memory.getMyColor().equals(Memory.getTurnColor())){
+          new Memory().Checker();  
+        }
+        else{
+            writeChronologyArea("non è il tuo turno");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * method for write a new text at the text area.
      * this method read the text already present on text area; than it add the new text with the "\n" and push on the new text.
@@ -1973,7 +2004,9 @@ public class MainWindows extends javax.swing.JFrame {
     public static javax.swing.JButton b00;
     private javax.swing.JLabel chronologyLabel;
     private javax.swing.JLabel infoBoxLabel;
+    private javax.swing.JLabel infoBoxLabel1;
     private javax.swing.JLabel ipServerLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     public static javax.swing.JMenu jMenu2;
