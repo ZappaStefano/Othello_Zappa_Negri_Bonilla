@@ -91,7 +91,6 @@ public class ControllerClass {
         Memory.setMyColor(textOfFirstMessage(firstMessage));
         while(endGame != 0 ){
             if(moveValid == true){
-                    //Memory.removeHint();
                     text = read.readLine();
                     System.out.println("CONTROLLERCLASS: testo letto: " + text);
                     System.out.println("CONTROLLERCLASS: attendo 200 ms");
@@ -122,7 +121,6 @@ public class ControllerClass {
                     if(TurnOf(text).equals(Memory.getMyColor())){
                         try{
                             System.out.println("CONTROLLERCLASS: controllo le mosse possibili");
-                            //new Memory().Checker();
                             System.out.println("CONTROLLERCLASS: my turn");System.out.println("CONTROLLERCLASS: colore turno : " + Memory.getTurnColor());MainWindows.writeChronologyArea("turn of : " + Memory.getTurnColor());
                             Memory.setTurnColor(TurnOf(text));
                             String replay = read.readLine();
