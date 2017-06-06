@@ -99,10 +99,6 @@ public class GameStarter extends Thread {
                     boolean h = false;
                     
                     String g = FC.EndGameChecker();
-                        if (g.equals("round: <black>;")){
-                            round = "black";
-                            h = false;
-                        }
                         if (g.equals("round: <white>;")){
                             round = "white";
                             out_IP1.println(g);
@@ -149,7 +145,7 @@ public class GameStarter extends Thread {
                         }
                     }
                 }
-                
+
                 else if (round.equals("white")){
                     System.out.println("Tocca al bianco");
                     boolean h = false;
@@ -159,10 +155,6 @@ public class GameStarter extends Thread {
                             out_IP1.println(g);
                             out_IP2.println(g);
                             h = true;
-                        }
-                        if (g.equals("round: <white>;")){
-                            round = "white";
-                            h = false;
                         }
                         if (g.contains("end")){
                             out_IP1.println(g);
