@@ -36,19 +36,19 @@ public class ControllerClass {
                 socket = new Socket(ip, port);
                 send = new PrintWriter(socket.getOutputStream(), true);
                 read = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                MainWindows.writeChronologyArea("i'm connect with : " + ip + " : " + port);
+                MainWindows.writeChronologyArea("I'm connect with : " + ip + " : " + port);
                 Memory.setIpAddress(ip);
                 Memory.setPort(port);
                 send.println("connection;");
-                System.out.println("CONTROLLERCLASS: connect to server");MainWindows.writeChronologyArea("conncet to server"); MainWindows.writeIpServerArea(ip + " : " + port); gameStatus = true;MainWindows.writeChronologyArea("______________________________________________________");
+                System.out.println("CONTROLLERCLASS: connect to server");MainWindows.writeChronologyArea("Conncet to server"); MainWindows.writeIpServerArea(ip + " : " + port); gameStatus = true;MainWindows.writeChronologyArea("______________________________________________________");
                 new Memory().newGame();
                 startGame();
             }else{
-                MainWindows.writeChronologyArea("you don't play in two game simultaneusly");
+                MainWindows.writeChronologyArea("You can't play two games simultaneously");
             }
         }
         catch(UnknownHostException exc){ 
-            MainWindows.writeChronologyArea("i don't have a connection with : " + ip + " : " + port);
+            MainWindows.writeChronologyArea("I don't have a connection with : " + ip + " : " + port);
             System.out.println("CONTROLLERCLASS: no start the game");
                 java.awt.EventQueue.invokeLater(() -> {
                     new ConnectionWindows().setVisible(true);
@@ -62,7 +62,7 @@ public class ControllerClass {
         }
         catch(NullPointerException ex3){ System.out.println("CONTROLLERCLASS: fine game"); }
         catch(Exception ex){
-            MainWindows.writeChronologyArea("error connection");
+            MainWindows.writeChronologyArea("Error connection");
             System.out.println("CONTROLLERCLASS: exception when try to connect " + ex);
         }
         try{
@@ -97,7 +97,7 @@ public class ControllerClass {
                     System.out.println("CONTROLLERCLASS: attendo 200 ms");
                     try{ Thread.sleep(200); }catch(Exception ex){ System.out.println("CONTROLLERCLASS, eccezione nell'attesa: "+ ex); }
                 if(controllEndGame(text).equals("end")){
-                    System.out.println("gioco finito");MainWindows.writeChronologyArea("end game." );
+                    System.out.println("gioco finito");MainWindows.writeChronologyArea("End game." );
                     String winner = "Discs: " + text;
                     /**
                      * CODICE DA SISTEMARE:
@@ -122,11 +122,11 @@ public class ControllerClass {
                     if(TurnOf(text).equals(Memory.getMyColor())){
                         try{
                             System.out.println("CONTROLLERCLASS: controllo le mosse possibili");
-                            System.out.println("CONTROLLERCLASS: my turn");System.out.println("CONTROLLERCLASS: colore turno : " + Memory.getTurnColor());MainWindows.writeChronologyArea("turn of : " + Memory.getTurnColor());
+                            System.out.println("CONTROLLERCLASS: my turn");System.out.println("CONTROLLERCLASS: colore turno : " + Memory.getTurnColor());MainWindows.writeChronologyArea("Turn of : " + Memory.getTurnColor());
                             Memory.setTurnColor(TurnOf(text));
                             String replay = read.readLine();
                             if(replay.equals("move not valid;")){
-                                MainWindows.writeChronologyArea("move not valid");
+                                MainWindows.writeChronologyArea("Move not valid");
                                 System.out.println("CONTROLLERCLASS: move not valid");moveValid = false;
                             }else{
                                 if(replay.substring(0,3).equals("end")){
@@ -175,7 +175,7 @@ public class ControllerClass {
                         //catch(Exception ex2){ System.out.println("eccezione nel mio turno (generica)"); }
                     }else{
                         try{
-                            System.out.println("CONTROLLERCLASS: enemy turn");MainWindows.writeChronologyArea("turn of : " + Memory.getTurnColor());
+                            System.out.println("CONTROLLERCLASS: enemy turn");MainWindows.writeChronologyArea("Turn of : " + Memory.getTurnColor());
                             Memory.setTurnColor(TurnOf(text));
                             enemyMove = read.readLine();
                             System.out.println("CONTROLLERCLASS: testo ricevuto : " + enemyMove);
@@ -208,7 +208,7 @@ public class ControllerClass {
                 System.out.println("CONTROLLERCLASS: reinserisci le coordinate");
                 String replay = read.readLine();
                 if(replay.equals("move not valid;")){
-                    MainWindows.writeChronologyArea("move not valid");
+                    MainWindows.writeChronologyArea("Move not valid");
                     System.out.println("CONTROLLERCLASS: move non valid");
                 }else{
                     System.out.println("mossa valida " + replay);
@@ -252,7 +252,7 @@ public class ControllerClass {
             }    
         }
         System.out.println("CONTROLLERCLASS: 1: " + text1 + " | 2: " + text2);
-        MainWindows.writeChronologyArea("your color : " + text2 + "\nname of game : " + text1);
+        MainWindows.writeChronologyArea("Your color : " + text2 + "\nName of game : " + text1);
         return text2;
     }
     /**
@@ -286,7 +286,7 @@ public class ControllerClass {
         try{
             send.println("place: <" + x + ">, <" + y + ">;");
         }
-        catch(NullPointerException ex1){ System.out.println("CONTROLLERCLASS: you don't play without the server"+ex1);MainWindows.writeChronologyArea("you don't play without the server"); }
+        catch(NullPointerException ex1){ System.out.println("CONTROLLERCLASS: you don't play without the server"+ex1);MainWindows.writeChronologyArea("Don't play without a server"); }
         catch(Exception ex2){ System.out.println(ex2); }
         
     }
@@ -319,7 +319,7 @@ public class ControllerClass {
             Memory.setTurnColor("");
             Memory.resetMap();
             Memory.resetNumberTurn();
-            MainWindows.writeChronologyArea("i'm disconnect to server");
+            MainWindows.writeChronologyArea("Disconnected from the server");
         }
         catch(IOException ex1){ System.out.println("CONTROLLERCLASS: i don't disconnect to server"+ex1); }
         catch(Exception ex2){ System.out.println("CONTROLLERCLASS: eccezione " + ex2); }
