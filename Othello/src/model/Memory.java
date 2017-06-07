@@ -67,7 +67,7 @@ import static view.MainWindows.ButtonLocation99;
 import static view.MainWindows.b00;
 
 /**
- * classe che contiene tutte le informazioni necessarie al controllo della partita
+ * Classe che contiene tutte le informazioni necessarie al controllo della partita.
  * @author negri.gioele
  */
 public class Memory {

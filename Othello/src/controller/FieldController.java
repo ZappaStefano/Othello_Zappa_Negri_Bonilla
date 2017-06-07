@@ -3,7 +3,7 @@ package controller;
 import model.GameStarter;
 
 /**
- *
+ *Movements checker
  * @author Stefano Zappa
  */
 public class FieldController {

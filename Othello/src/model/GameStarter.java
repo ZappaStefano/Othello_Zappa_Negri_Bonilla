@@ -5,7 +5,7 @@ import java.io. *;
 import java.net. *;
 
 /**
- * 
+ * Starts the game and checking of movements
  * @author Stefano Zappa
  */
 public class GameStarter extends Thread {

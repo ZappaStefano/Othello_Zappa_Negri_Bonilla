@@ -10,7 +10,7 @@ import view.ConnectionWindows;
 import view.MainWindows;
 
 /**
- * classe che gestisce la connessione fra client e server
+ * Classe che gestisce la connessione fra client e server.
  * @author negri.gioele
  */
 public class ControllerClass {

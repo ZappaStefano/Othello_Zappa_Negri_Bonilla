@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import view.WindowsServerInfo;
 /**
- *
+ * Creates a thread for every packet received
  * @author Stefano Zappa
  */
 public class OthelloServer extends Thread{

@@ -5,7 +5,7 @@ import java.net.*;
 import java.util.Random;
 
 /**
- *
+ * Class witch creates a socket and starts the match if two clients are connected
  * @author Stefano Zappa
  */
 public class ServerThread extends Thread{

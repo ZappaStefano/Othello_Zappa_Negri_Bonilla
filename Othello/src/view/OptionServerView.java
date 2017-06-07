@@ -3,7 +3,7 @@ package view;
 import model.OthelloServer;
 
 /**
- * classe per le opzioni del server
+ * Classe per le opzioni del server.
  * @author negri.gioele
  */
 public class OptionServerView extends javax.swing.JFrame {

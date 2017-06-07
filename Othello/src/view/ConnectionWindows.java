@@ -4,8 +4,8 @@ import controller.ControllerClass;
 import controller.connection;
 
 /**
- * classe per la connessione al server.
- * contiene la grafica per connettersi.
+ * Classe per la connessione al server.
+ * Contiene la grafica per connettersi.
  * @author negri.gioele
  */
 public class ConnectionWindows extends javax.swing.JFrame {

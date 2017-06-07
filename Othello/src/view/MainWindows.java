@@ -5,8 +5,8 @@ import model.Memory;
 import model.OthelloServer;
 
 /**
- * classe principale.
- * contiene la grafica del gioco.
+ * Classe principale.
+ * Contiene la grafica del gioco.
  * @author negri.gioele
  */
 public class MainWindows extends javax.swing.JFrame {

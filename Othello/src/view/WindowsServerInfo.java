@@ -1,7 +1,7 @@
 package view;
 
 /**
- *
+ *Dialog box with informations about the server
  * @author negri.gioele
  */
 public class WindowsServerInfo extends javax.swing.JFrame {

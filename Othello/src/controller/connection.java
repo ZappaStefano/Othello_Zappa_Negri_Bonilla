@@ -1,7 +1,7 @@
 package controller;
 
 /**
- * thread per la creazione di una connessione tra server e client
+ * Thread per la creazione di una connessione tra server e client.
  * @author negri.gioele
  */
 public class connection extends Thread{
