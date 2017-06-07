@@ -46,9 +46,9 @@ public class GameStarter extends Thread {
      */
     private FieldController FC;
     /**
-     * Variables used to estabilish witch socket will receive something when there aren't movements for the opposite color
+     * Variables used to estabilish the round
      */
-    public static boolean WH = false, BL = false;
+    public static String round,g;
     
     /**
      * Constructor of <code>GameStarter</code>
@@ -76,7 +76,7 @@ public class GameStarter extends Thread {
         FC = new FieldController();
         Num = 4;
         b = false;
-        String round = "black";
+        round = "black";
         try {
             while (b == false){
             in_IP1 = new BufferedReader(new InputStreamReader(S1.getInputStream()));
@@ -97,8 +97,7 @@ public class GameStarter extends Thread {
                 if (round.equals("black")){
                     System.out.println("Tocca al nero");
                     boolean h = false;
-                    
-                    String g = FC.EndGameChecker();
+                    FC.EndGameChecker();
                         if (g.equals("round: <white>;")){
                             round = "white";
                             out_IP1.println(g);
@@ -149,7 +148,7 @@ public class GameStarter extends Thread {
                 else if (round.equals("white")){
                     System.out.println("Tocca al bianco");
                     boolean h = false;
-                    String g = FC.EndGameChecker();
+                    FC.EndGameChecker();
                         if (g.equals("round: <black>;")){
                             round = "black";
                             out_IP1.println(g);

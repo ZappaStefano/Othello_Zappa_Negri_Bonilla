@@ -150,6 +150,11 @@ public class MainWindows extends javax.swing.JFrame {
         labelNumberDiscs.setText("Number discs");
 
         numberDiscsTextField.setEditable(false);
+        numberDiscsTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberDiscsTextFieldActionPerformed(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/image/hint.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -159,10 +164,12 @@ public class MainWindows extends javax.swing.JFrame {
         });
 
         infoBoxLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        infoBoxLabel1.setText("Another control");
+        infoBoxLabel1.setText("Do you need help?");
 
         HintTextArea.setEditable(false);
-        HintTextArea.setText("Aiuti disponibill -> 3");
+        HintTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        HintTextArea.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        HintTextArea.setText("Aiuti disponibili: 3");
         HintTextArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HintTextAreaActionPerformed(evt);
@@ -173,11 +180,9 @@ public class MainWindows extends javax.swing.JFrame {
         Info.setLayout(InfoLayout);
         InfoLayout.setHorizontalGroup(
             InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(infoBoxLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+            .addGroup(InfoLayout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
             .addGroup(InfoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +201,7 @@ public class MainWindows extends javax.swing.JFrame {
                                         .addGap(1, 1, 1)))
                                 .addGroup(InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(numberDiscsTextField)
-                                    .addComponent(yourColorArea, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                                    .addComponent(yourColorArea)
                                     .addComponent(IpServerArea)
                                     .addGroup(InfoLayout.createSequentialGroup()
                                         .addComponent(TurnColorArea)
@@ -209,14 +214,21 @@ public class MainWindows extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoLayout.createSequentialGroup()
-                        .addGap(0, 151, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(infoBoxLabel)
                         .addGap(173, 173, 173))
-                    .addGroup(InfoLayout.createSequentialGroup()
-                        .addGroup(InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(HintTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoLayout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(HintTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(139, 139, 139))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(infoBoxLabel1)
+                .addGap(119, 119, 119))
         );
         InfoLayout.setVerticalGroup(
             InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,19 +259,19 @@ public class MainWindows extends javax.swing.JFrame {
                     .addComponent(labelNumberDiscs)
                     .addComponent(numberDiscsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(infoBoxLabel1)
-                .addGap(35, 35, 35)
+                .addComponent(infoBoxLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HintTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9))
+                .addGap(21, 21, 21))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Chessboard");
 
         sfondo.setBackground(new java.awt.Color(0, 0, 102));
-        sfondo.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        sfondo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         Chessboard8.setBackground(new java.awt.Color(0, 0, 102));
         Chessboard8.setLayout(new java.awt.GridLayout(1, 0));
@@ -932,7 +944,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_b00ActionPerformed
 
@@ -946,7 +958,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation20ActionPerformed
 
@@ -960,7 +972,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation117ActionPerformed
 
@@ -974,7 +986,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation118ActionPerformed
 
@@ -988,7 +1000,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation119ActionPerformed
 
@@ -1002,7 +1014,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation120ActionPerformed
 
@@ -1016,7 +1028,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation121ActionPerformed
 
@@ -1030,7 +1042,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation122ActionPerformed
 
@@ -1044,7 +1056,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation29ActionPerformed
 
@@ -1058,7 +1070,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation30ActionPerformed
 
@@ -1072,7 +1084,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation39ActionPerformed
 
@@ -1086,7 +1098,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation40ActionPerformed
 
@@ -1100,7 +1112,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation105ActionPerformed
 
@@ -1114,7 +1126,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation106ActionPerformed
 
@@ -1128,7 +1140,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation107ActionPerformed
 
@@ -1142,7 +1154,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation108ActionPerformed
 
@@ -1156,7 +1168,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation131ActionPerformed
 
@@ -1170,7 +1182,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation132ActionPerformed
 
@@ -1184,7 +1196,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation133ActionPerformed
 
@@ -1198,7 +1210,7 @@ public class MainWindows extends javax.swing.JFrame {
        if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation134ActionPerformed
 
@@ -1212,7 +1224,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation135ActionPerformed
 
@@ -1226,7 +1238,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation136ActionPerformed
 
@@ -1240,7 +1252,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation137ActionPerformed
 
@@ -1254,7 +1266,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation138ActionPerformed
 
@@ -1268,7 +1280,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation49ActionPerformed
 
@@ -1282,7 +1294,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation50ActionPerformed
 
@@ -1296,7 +1308,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation59ActionPerformed
 
@@ -1310,7 +1322,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation60ActionPerformed
 
@@ -1324,7 +1336,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation101ActionPerformed
 
@@ -1338,7 +1350,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation102ActionPerformed
 
@@ -1352,7 +1364,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation103ActionPerformed
 
@@ -1366,7 +1378,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation104ActionPerformed
 
@@ -1380,7 +1392,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation109ActionPerformed
 
@@ -1394,7 +1406,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation110ActionPerformed
 
@@ -1408,7 +1420,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation111ActionPerformed
 
@@ -1422,7 +1434,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation112ActionPerformed
 
@@ -1436,7 +1448,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation113ActionPerformed
 
@@ -1450,7 +1462,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation114ActionPerformed
 
@@ -1464,7 +1476,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation115ActionPerformed
 
@@ -1478,7 +1490,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation116ActionPerformed
 
@@ -1492,7 +1504,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation69ActionPerformed
 
@@ -1506,7 +1518,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation70ActionPerformed
 
@@ -1520,7 +1532,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation95ActionPerformed
 
@@ -1534,7 +1546,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation96ActionPerformed
 
@@ -1548,7 +1560,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation97ActionPerformed
 
@@ -1562,7 +1574,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation98ActionPerformed
 
@@ -1576,7 +1588,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation99ActionPerformed
 
@@ -1590,7 +1602,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation100ActionPerformed
 
@@ -1604,7 +1616,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation79ActionPerformed
 
@@ -1618,7 +1630,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation80ActionPerformed
 
@@ -1632,7 +1644,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation89ActionPerformed
 
@@ -1646,7 +1658,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation90ActionPerformed
 
@@ -1660,7 +1672,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation91ActionPerformed
 
@@ -1674,7 +1686,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation92ActionPerformed
 
@@ -1688,7 +1700,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation93ActionPerformed
 
@@ -1702,7 +1714,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation94ActionPerformed
 
@@ -1716,7 +1728,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation123ActionPerformed
 
@@ -1730,7 +1742,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation124ActionPerformed
 
@@ -1744,7 +1756,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation125ActionPerformed
 
@@ -1758,7 +1770,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation126ActionPerformed
 
@@ -1772,7 +1784,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation127ActionPerformed
 
@@ -1786,7 +1798,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation128ActionPerformed
 
@@ -1800,7 +1812,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation129ActionPerformed
 
@@ -1814,7 +1826,7 @@ public class MainWindows extends javax.swing.JFrame {
         if(Memory.getMyColor().equals(Memory.getTurnColor())){
             ControllerClass.sendPosition(x, y);
         }else{
-            writeChronologyArea("non è il tuo turno");
+            writeChronologyArea("It is not your round");
         }
     }//GEN-LAST:event_ButtonLocation130ActionPerformed
   
@@ -1848,13 +1860,13 @@ public class MainWindows extends javax.swing.JFrame {
             new Memory().disableButton();
             serverStart = true;
         }else{
-            writeChronologyArea("non puoi avviare due server nell stesso tempo");
+            writeChronologyArea("Don't run two server at the same time");
         }
     }//GEN-LAST:event_StartServerMenuActionPerformed
     /* options server*/
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         if(serverStart == true){
-            writeChronologyArea("server is already start. ican't modify the options ");
+            writeChronologyArea("Server is already start. I can't modify the options ");
         }else{
             java.awt.EventQueue.invokeLater(() -> {
                 new OptionServerView().setVisible(true);
@@ -1867,13 +1879,13 @@ public class MainWindows extends javax.swing.JFrame {
             if(Memory.getMyColor().equals(Memory.getTurnColor())){
                 new Memory().Checker();
                 contHint = contHint - 1;
-                HintTextArea.setText("Aiuti disponibill -> "+ contHint);
+                HintTextArea.setText("Available helps: "+ contHint);
             }
             else{
-                writeChronologyArea("non è il tuo turno");
+                writeChronologyArea("It is not your round");
             }
         }else{
-            HintTextArea.setText("Aiuti finiti");
+            HintTextArea.setText("Helps are finished");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -1881,6 +1893,10 @@ public class MainWindows extends javax.swing.JFrame {
     private void HintTextAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HintTextAreaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_HintTextAreaActionPerformed
+
+    private void numberDiscsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberDiscsTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberDiscsTextFieldActionPerformed
 
     /**
      * method for write a new text at the text area.

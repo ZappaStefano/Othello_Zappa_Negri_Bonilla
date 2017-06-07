@@ -2209,7 +2209,7 @@ public class Memory {
                 if(map[x][y] == 2){ countWhite = countWhite + 1;  }
             }
         }
-        MainWindows.writeNumberDiscs("white : " + countWhite + " - black : " + countBlack + " - blank : " + countNull);
+        MainWindows.writeNumberDiscs("White : " + countWhite + " | Black : " + countBlack + " | Blank : " + countNull);
     }
     /**
      * metodo per stabilire chi ha vinto la partita
@@ -2226,9 +2226,9 @@ public class Memory {
                 if(map[x][y] == 2){ countWhite = countWhite + 1;  }
             }
         }
-        if(countBlack < countWhite){ return "winner is: withe with " + countWhite + " discs"; }
-        if(countBlack > countWhite){ return "winner is: black with " + countBlack + " discs"; }
-        if(countBlack == countWhite){ return "the game is drawn"; }
+        if(countBlack < countWhite){ return "Winner is: withe with " + countWhite + " discs"; }
+        if(countBlack > countWhite){ return "Winner is: black with " + countBlack + " discs"; }
+        if(countBlack == countWhite){ return "The game ends equal"; }
         return "";
     }
     /**

@@ -113,11 +113,11 @@ public class ConnectionWindows extends javax.swing.JFrame {
     }//GEN-LAST:event_ConnectActionPerformed
     //button of local host
     private void localHostButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localHostButtonActionPerformed
-        Ip1Textfield.setText("0.0.0.0");
+        Ip1Textfield.setText("127.0.0.1");
         PortTextfield2.setText("2000");
     }//GEN-LAST:event_localHostButtonActionPerformed
     /**
-     * metodo per chiudere la finestras
+     * metodo per chiudere la finestra
      */
     public void closeWindow(){
         setVisible(false);
