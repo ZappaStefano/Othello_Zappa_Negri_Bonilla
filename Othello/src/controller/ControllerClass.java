@@ -60,7 +60,7 @@ public class ControllerClass {
         catch(IOException ex2){
             System.out.println("CONTROLLERCLASS: eccezione nel metodo connectServer" + ex2);
         }
-        catch(NullPointerException ex3){ System.out.println("CONTROLLERCLASS: fine game"); }
+        catch(NullPointerException ex3){ System.out.println("CONTROLLERCLASS: fine gioco"); }
         catch(Exception ex){
             MainWindows.writeChronologyArea("Error connection");
             System.out.println("CONTROLLERCLASS: exception when try to connect " + ex);
@@ -321,7 +321,7 @@ public class ControllerClass {
             Memory.resetNumberTurn();
             MainWindows.writeChronologyArea("Disconnected from the server");
         }
-        catch(IOException ex1){ System.out.println("CONTROLLERCLASS: i don't disconnect to server"+ex1); }
+        catch(IOException ex1){ System.out.println("CONTROLLERCLASS: i can't disconnect from server"+ex1); }
         catch(Exception ex2){ System.out.println("CONTROLLERCLASS: eccezione " + ex2); }
     }
 }
