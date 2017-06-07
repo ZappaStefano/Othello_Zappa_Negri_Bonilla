@@ -34,6 +34,7 @@ public class MainWindows extends javax.swing.JFrame {
         numberDiscsTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         infoBoxLabel1 = new javax.swing.JLabel();
+        HintTextArea = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         sfondo = new javax.swing.JPanel();
         Chessboard8 = new javax.swing.JPanel();
@@ -160,11 +161,23 @@ public class MainWindows extends javax.swing.JFrame {
         infoBoxLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         infoBoxLabel1.setText("Another control");
 
+        HintTextArea.setEditable(false);
+        HintTextArea.setText("Aiuti disponibill -> 3");
+        HintTextArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HintTextAreaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout InfoLayout = new javax.swing.GroupLayout(Info);
         Info.setLayout(InfoLayout);
         InfoLayout.setHorizontalGroup(
             InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(infoBoxLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
             .addGroup(InfoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,12 +213,10 @@ public class MainWindows extends javax.swing.JFrame {
                         .addComponent(infoBoxLabel)
                         .addGap(173, 173, 173))
                     .addGroup(InfoLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(HintTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(infoBoxLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
         );
         InfoLayout.setVerticalGroup(
             InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,14 +250,16 @@ public class MainWindows extends javax.swing.JFrame {
                 .addComponent(infoBoxLabel1)
                 .addGap(35, 35, 35)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(HintTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Chessboard");
 
         sfondo.setBackground(new java.awt.Color(0, 0, 102));
-        sfondo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        sfondo.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         Chessboard8.setBackground(new java.awt.Color(0, 0, 102));
         Chessboard8.setLayout(new java.awt.GridLayout(1, 0));
@@ -907,6 +920,7 @@ public class MainWindows extends javax.swing.JFrame {
     /*VARIABLE*/
         private static OthelloServer o;
         public static boolean serverStart = false;
+        private static int contHint = 3;
     /*FORM*/
     /**
      * it's a method for button : 0-0
@@ -1849,13 +1863,24 @@ public class MainWindows extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(Memory.getMyColor().equals(Memory.getTurnColor())){
-          new Memory().Checker();  
+        if(contHint != 0){
+            if(Memory.getMyColor().equals(Memory.getTurnColor())){
+                new Memory().Checker();
+                contHint = contHint - 1;
+                HintTextArea.setText("Aiuti disponibill -> "+ contHint);
+            }
+            else{
+                writeChronologyArea("non è il tuo turno");
+            }
+        }else{
+            HintTextArea.setText("Aiuti finiti");
         }
-        else{
-            writeChronologyArea("non è il tuo turno");
-        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void HintTextAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HintTextAreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HintTextAreaActionPerformed
 
     /**
      * method for write a new text at the text area.
@@ -1997,6 +2022,7 @@ public class MainWindows extends javax.swing.JFrame {
     private javax.swing.JPanel Chessboard8;
     private javax.swing.JPanel Chessboard9;
     private static javax.swing.JTextArea ChronologyActionsArea;
+    private javax.swing.JTextField HintTextArea;
     private javax.swing.JPanel Info;
     private static javax.swing.JTextField IpServerArea;
     private javax.swing.JMenuBar MenuBar;
