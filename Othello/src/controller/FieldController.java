@@ -596,9 +596,8 @@ public class FieldController {
     /**
      * This method checks if there are others movements to do.
      * If there aren't, the game finishes 
-     * @return A string contenent a 'round' if there are legal movements, or the end game string if no movements are possible
      */
-    public synchronized String EndGameChecker (){
+    public synchronized void EndGameChecker (){
         int Wmovements = 0;
         int Bmovements = 0;
         for (int i = 0; i < 8; i++) {
@@ -619,20 +618,23 @@ public class FieldController {
         System.out.println("Ci sono "+Bmovements+" possibili mosse per il nero");
         
         if (Wmovements == 0 && Bmovements == 0){
-            return cont ();
+            GameStarter.g = cont ();
+            //return cont ();
         }
         
-        if (Wmovements == 0){
+        else if (GameStarter.round.equals("white") && Wmovements == 0){
             System.out.println("Non più bianchi");
-            return "round: <black>;";
+            GameStarter.g = "round: <black>;";
+            //return "round: <black>;";
         }
-        if (Bmovements == 0){
+        else if (GameStarter.round.equals("black") && Bmovements == 0){
             System.out.println("Non più neri");
-            return "round: <white>;";
+            GameStarter.g = "round: <white>;";
+            //return "round: <white>;";
         }
         
         else
-            return "move not valid;";
+            GameStarter.g = "move not valid;";
         
     }
     
